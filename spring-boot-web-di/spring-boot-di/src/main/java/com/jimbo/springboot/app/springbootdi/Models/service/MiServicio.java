@@ -1,7 +1,10 @@
 package com.jimbo.springboot.app.springbootdi.Models.service;
 
-public class MiServicio {
-    
+import org.springframework.stereotype.Component;
+
+@Component("miServicioSimple")
+public class MiServicio implements Iservice{
+    @Override
     public String operacion(){
         return "ejecutando algun proceso importante...";
     }
