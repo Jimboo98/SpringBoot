@@ -12,7 +12,7 @@ public class IndexController{
 
     private MiServicio servicio = new MiServicio();
 
-    @GetMapping({"/index"," ", "/"})
+    @GetMapping({"/index"," ", "/home"})
     public String index(Model model){
         model.addAttribute("objeto", servicio.operacion());
         return "index";
