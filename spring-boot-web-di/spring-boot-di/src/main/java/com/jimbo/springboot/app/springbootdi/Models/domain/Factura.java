@@ -1,14 +1,24 @@
 package com.jimbo.springboot.app.springbootdi.Models.domain;
 
+import java.io.Serializable;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import org.springframework.web.context.annotation.SessionScope;
+
 @Component
-public class Factura {
+@SessionScope
+public class Factura implements Serializable{
+
+
+
 
     @Value("${factura.descripcion}")
     private String descripcion;
@@ -20,9 +30,16 @@ public class Factura {
   
     private List<ItemFactura> items;
 
- 
+    @PostConstruct
+    public void inicializar(){
+        cliente.setNombre(cliente.getNombre().concat(" ").concat("Eduardo"));
+        descripcion = descripcion.concat(" del cliente: ").concat(cliente.getNombre());
+    }
 
- 
+    @PreDestroy
+    public void destruir(){
+        System.out.println("Factura destruida: ".concat(descripcion));
+    }
 
     public Factura(String descripcion, Cliente cliente, List<ItemFactura> items) {
         this.descripcion = descripcion;
