@@ -19,6 +19,16 @@
             "projectName": "spring-boot-di",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootWebApplication<springboot-web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.jimbo.curso.springboot.webapp.springbootweb.SpringbootWebApplication",
+            "projectName": "springboot-web",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
